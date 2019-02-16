@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Test from "./test/test";
+import Axios from "axios";
 
 class App extends Component {
   state = {
@@ -16,6 +17,12 @@ class App extends Component {
     const { name, value } = e.target;
     this.setState({
       [name]: value
+    });
+  };
+
+  handleCreateUser = () => {
+    Axios.post("/api/new-user", { username: "alex" }).then(response => {
+      console.log(response);
     });
   };
 
